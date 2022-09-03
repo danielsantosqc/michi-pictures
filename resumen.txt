@@ -1,2 +1,0 @@
-Aqui hacemos el consumo de las API REST, endpoints, methods-http,
- autorizacion, body, headers, formData. Ver el historia en git

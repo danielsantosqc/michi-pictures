@@ -10,14 +10,44 @@
 </head>
 
 <body>
+  <h1 style="text-align: center;">Random Cat</h1>
+  
+  <h2>Random michis</h2>
   <div>
-    <h1>Random Cat</h1>
-    <button type="button" onclick="refresh()"> Refresh </button>
+    <button type="button" onclick="loadRamdomMichis()"> Refresh </button>
   </div>
-  <div>
-    <img id="image1" alt="foto del gatito" width="150px">
-    <img id="image2" alt="foto del gatito" width="150px">
-    <img id="image3" alt="foto del gatito" width="150px">
+  <div height="300px" ; style="border: 1px solid black; display: flex;">
+    <div style="border: 1px solid white; display: flex; flex-direction: column; justify-content:center ">
+      <img id="imagen1" alt="foto del gatito" width="150px">
+      <button type="button" onclick="addFavourites()"> Add to Favourites </button>
+    </div>
+
+    <div style="border: 1px solid white; display: flex; flex-direction: column; justify-content:center ">
+      <img id="imagen2" alt="foto del gatito" width="150px">
+      <button type="button" onclick="addFavourites()"> Add to Favourites </button>
+    </div>
+
+    <div style="border: 1px solid white; display: flex; flex-direction: column; justify-content:center ">
+      <img id="imagen3" alt="foto del gatito" width="150px">
+      <button type="button" onclick="addFavourites()"> Add to Favourites </button>
+    </div>
+
+    <!-- add favourite -->
+    <div style="border: 1px solid white; display: flex; flex-direction: column; justify-content:center ">
+      <img id="imagen4" alt="" width="150px">
+      <span id="favoritos"></span>
+    </div>
+  </div>
+
+
+  <!-- favourites -->
+  <h2>Favourite Michis</h2>
+  <button type="button" onclick=" loadFavouriteMichis()"> Next </button>
+  <span id="spanError" ></span>
+  <div height="300px" ; style="border: 1px solid black; display: flex;">
+    <div style="border: 1px solid white; display: flex; flex-direction: column; justify-content:center ">
+      <img id="imgFav" alt="foto del gatito" width="150px" >
+    </div>
   </div>
 
   <script src="./main.js"></script>
