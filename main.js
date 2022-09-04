@@ -1,5 +1,9 @@
-import { API_KEY } from "./secret_api-key.js";
-console.log(API_KEY);
+// import { API_KEY } from "./secret_api-key.js";
+// console.log(API_KEY);
+
+// no me copies la api-key puedes crear rapidamente una en https://thecatapi.com/ y remplazarla 
+// se un buen programador y no uses my key para tu priyecto, por favor
+const API_KEY = "live_WOCCvj11GB4Vvoo5heQXZzge7WucFj8fh23eoQW1Zvi5EzSfvjtXghysw9EPLIww";
 
 document.addEventListener("DOMContentLoaded", () => {
   loadRamdomMichis();
