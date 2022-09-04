@@ -105,3 +105,6 @@ dist
 
 # api_key
 secret_api-key.js
+
+# vscode
+ .vscode
