@@ -11,10 +11,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 document.addEventListener("click", (e) => {
-  if (e.target.matches(".btn-refres .btn")) {
-    console.log("refreshhhh");
-    loadRamdomMichis();
-  }
+  // if (e.target.matches(".btn-refres .btn")) {
+  //   console.log("refreshhhh");
+  //   // loadRamdomMichis();
+  // }
   if (e.target.matches(".card .btn-outline-primary")) {
     console.log("addFavoritos");
     console.log(e.target.id);
@@ -39,6 +39,9 @@ const HTTP_RESPONSE = {
   GATEWAY_TIMEOUT: 504,
 };
 
+// form select
+const typeImg = document.getElementById("type")
+
 const spanError = document.getElementById("spanError");
 
 //get tags-Random michis
@@ -52,11 +55,8 @@ const URL_RANDOM = `https://api.thecatapi.com/v1/images/search?`;
 const URL_FAVOURITES = `https://api.thecatapi.com/v1/favourites?`;
 const URL_FAVOURITES_DELETE = `https://api.thecatapi.com/v1/favourites/`;
 
-const API_URL_RANDOM = URL_RANDOM + "limit=" + limit + "&api_key=" + API_KEY;
+const API_URL_RANDOM = (type ="", breed = "")=> `${URL_RANDOM}mime_types=${type}&breed_ids=${breed}&limit=${limit}&api_key=${API_KEY}`;
 const API_URL_FAVOURITES = URL_FAVOURITES + "api_key=" + API_KEY;
-// const API_URL_FAVOURITES_DELETE = (id) => {
-//   URL_FAVOURITES_DELETE + id + "&api_key=" + API_KEY;
-// };
 const API_URL_FAVOURITES_DELETE = (id) =>
   `https://api.thecatapi.com/v1/favourites/${id}?api_key=${API_KEY}`;
 
@@ -122,15 +122,17 @@ function pintarCardsFavourites(data) {
 }
 
 //load random images
-async function loadRamdomMichis() {
-  button.disabled = true;
-  const result = await fetch(API_URL_RANDOM);
+async function loadRamdomMichis(typeImg,breed) { 
+  // const typeImg = "gif"
+  console.log(API_URL_RANDOM(typeImg));
+  // button.disabled = true;
+  const result = await fetch(API_URL_RANDOM(typeImg, breed));
   const data = await result.json();
   if (result.status == 200) {
     console.log("Random");
     console.log(data);
     pintarCardsRandom(data);
-    button.disabled = false;
+    // button.disabled = false;
   } else {
     console.log("algo annda mall");
   }
@@ -199,3 +201,40 @@ async function deldeteFavourites(idCat) {
     loadFavouriteMichis();
   }
 }
+
+typeImg.addEventListener('change', (e) => {
+  const type = typeImg.value;
+  console.log(type);
+  loadRamdomMichis(type);
+})
+
+
+const buttonClick = document.querySelector(".click");
+buttonClick.addEventListener('click', (e) => {
+  const type = typeImg.value;
+  console.log(type);
+  razas(type);
+})
+
+const selectBreeds = document.getElementById("breeds")
+async function razas (){
+  const result = await fetch("https://api.thecatapi.com/v1/breeds")
+  const data =  await result.json();
+  // console.log(data);
+  data.forEach(element => {
+    let newOption = document.createElement("option");
+    newOption.value = element.id;
+    newOption.text = element.name;
+    selectBreeds.add(newOption);
+    // console.log(element.id);
+  });
+}
+selectBreeds.addEventListener('change', (e) => {
+  const breed = selectBreeds.value;
+  // const text = selectBreeds.options[selectBreeds.selectedIndex].text;
+  console.log(breed);
+  loadRamdomMichis(type, breed);
+})
+
+razas();
+
