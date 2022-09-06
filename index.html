@@ -12,25 +12,57 @@
 </head>
 
 <body>
-  <h1 style="text-align: center;">Random Cat</h1>
+  <header class="header">
+    <h1 style="text-align: center;">Random Cat</h1>
+  </header>
 
-  <h2>Random michis</h2>
-
-  <!-- main apartir de aqui -->
-  <div class="btn-refres" >
-    <button type="button" class="btn btn-outline-secondary" > Refresh </button>
+  <div class="btn-refresssss" style="border: 1px solid black;">
+    <button type="button" class="btn btn-outline-secondary click"> click </button>
   </div>
+  
+  <!-- her init main -->
+  <main class="main">
 
-  <!-- random cats cards -->
-  <div class="container my-5">
+    <!-- init options for search--------------- -->
+    <!-- <h2>Random michis</h2> -->
+    
+      <div class="container my-5 col-2 col-md-6 col-lg-3 mb-3"  style="border: 1px solid aquamarine;">
 
-    <!-- aqui se muestra las cards -->
-    <section class="row" id="card-dinamicas-random">
-      <!-- aqui se pinta el template random michis -->
-      <!-- <article class="col-12 col-md-6 col-lg-3 mb-3">
+        <section class="row"  style="border: 1px solid rgb(30, 205, 10);">
+          <select class="form-select form-select-sm" aria-label=".form-select-sm " id="type">
+            <option selected>All</option>
+            <option value="jpg,png">Estatitos</option>
+            <option value="gif">Animados</option>
+          </select>
+        </section>
+
+        <section class="row"  style="border: 1px solid rgb(30, 205, 10);">
+          <select class="form-select form-select-sm" aria-label=".form-select-sm " id="breeds">
+            <option selected>All</option>
+              <!-- <option value="jpg,png">Estatitos</option>
+              <option value="gif">Animados</option> -->
+          </select>   
+        </section>
+        
+     </div>      
+
+    <!-- end serch options-=-- -->
+
+    <!-- random cats cards -->
+    <div class="container my-5" style="border: 1px solid black;">
+      <!-- aqui se muestra las cards -->
+      <section class="row" id="card-dinamicas-random" style="border: 1px solid red;">
+        <!-- ######aqui se pinta el template card random michis -->
+      </section>
+    </div>
+
+    <!-- TEMPLATES  random michis-->
+    <template id="template-card-random-cats">
+      <article class="col-12 col-md-6 col-lg-3 mb-3">
+        <!-- card design -->
         <div class="card text-center shadow">
-          <img src="" alt="" class="card-img-top">
-          <div class="car-body">
+            <img src="" alt="" class="card-img-top p-1">
+          <div class="card-body">
             <h5 class="card-title text-primary lead">
               Nombre del personaje.
             </h5>
@@ -39,39 +71,26 @@
               Favourites</button>
           </div>
         </div>
-      </article> -->
-    </section>
-  </div>
-  <!-- TEMPLATES  random michis-->
-  <template id="template-card-random-cats">
-    <article class="col-12 col-md-6 col-lg-3 mb-3">
-      <div class="card text-center shadow">
-        <img src="" alt="" class="card-img-top">
-        <div class="card-body">
-          <h5 class="card-title text-primary lead">
-            Nombre del personaje.
-          </h5>
-          <p class="lead text-secondary">Human or Alien</p>
-          <button id="" type="button" class="btn btn-outline-primary">Add
-            Favourites</button>
-        </div>
-      </div>
-    </article>
-  </template>
+      </article>
+    </template>
 
+    <!-- favourites -->
+    <div style="border: 1px solid black;">
+      <h2>Favourite Michis</h2>
+    </div>
+    <!-- <button type="button" onclick=" loadFavouriteMichis()"> Next </button> -->
+    <span id="spanError"></span>
 
-  <!-- favourites -->
-  <h2>Favourite Michis</h2>
-  <!-- <button type="button" onclick=" loadFavouriteMichis()"> Next </button> -->
-  <span id="spanError"></span>
-
-   <!-- favourites cats cards -->
-   <div class="container my-5">
-
-    <!-- aqui se muestra las cards -->
-    <section class="row" id="card-dinamicas-favourites">
-      <!-- aqui se pinta el template favourites michis -->
-      <!-- <article class="col-12 col-md-6 col-lg-3 mb-3">
+    <!-- favourites cats cards -->
+    <div class="container my-5" >
+      <!-- aqui se muestra las cards -->
+      <section class="row" id="card-dinamicas-favourites">
+        <!-- aqui se pinta el template favourites michis -->
+      </section>
+    </div>
+    <!-- TEMPLATES  favourites michis-->
+    <template id="template-card-favourites-cats">
+      <article class="col-12 col-md-6 col-lg-3 mb-3">
         <div class="card text-center shadow">
           <img src="" alt="" class="card-img-top">
           <div class="car-body">
@@ -79,29 +98,21 @@
               Nombre del personaje.
             </h5>
             <p class="lead text-secondary">Human or Alien</p>
-            <button id="" type="button" class="btn btn-outline-primary">Add
+            <button id="" type="button" class="btn btn-outline-danger">Delete
               Favourites</button>
           </div>
         </div>
-      </article> -->
-    </section>
-  </div>
-  <!-- TEMPLATES  favourites michis-->
-  <template id="template-card-favourites-cats">
-    <article class="col-12 col-md-6 col-lg-3 mb-3">
-      <div class="card text-center shadow">
-        <img src="" alt="" class="card-img-top">
-        <div class="car-body">
-          <h5 class="card-title text-primary lead">
-            Nombre del personaje.
-          </h5>
-          <p class="lead text-secondary">Human or Alien</p>
-          <button id="" type="button" class="btn btn-outline-danger">Delete
-            Favourites</button>
-        </div>
-      </div>
-    </article>
-  </template>
+      </article>
+    </template>
+  </main>
+    
+
+  <!-- here init footer  -->
+  <footer class="footer">
+    <p>Made with love ♥ by <strong>DANIEL Q </strong></p>
+    <a class="footer-link" href="https://github.com/danielsantosqc/michi-pictures/"> <img class="footer-img" src="github.png" alt="" srcset="">
+    </a>
+  </footer>
 
   <script src="./main.js" type="module">
   </script>
